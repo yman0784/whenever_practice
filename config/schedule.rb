@@ -5,7 +5,12 @@
 
 # Example:
 #
+require File.expand_path(File.dirname(__FILE__) + '/environment')
+rails_env = ENV['RAILS_ENV'] || :development
+set :environment, rails_env
+set :job_template, "bash -l -c ':job'"
 set :output, 'log/cron.log'
+job_type :rake, "source /Users/user/.zshrc; export PATH=\"$HOME/.rbenv/bin:$PATH\"; eval \"$(rbenv init -)\"; cd :path && RAILS_ENV=:environment bundle exec rake :task :output"
 #
 # every 2.hours do
 #   command "/usr/bin/some_great_command"
@@ -19,5 +24,10 @@ set :output, 'log/cron.log'
 
 # Learn more: http://github.com/javan/whenever
 every 2.minutes do 
-  runner 'Tweet.create(name: "taro", text: "aaa")'
+  # command 'ruby --version'
+  # command 'bundler --version'
+  # command 'ruby -e'
+  # command 'p ENV["PATH"]'
+  # runner 'Tweet.create(name: "taro", text: "aaa")'
+  rake "tweet:tweet_create"
 end
