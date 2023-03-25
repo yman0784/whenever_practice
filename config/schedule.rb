@@ -23,11 +23,16 @@ job_type :rake, "source /Users/user/.zshrc; export PATH=\"$HOME/.rbenv/bin:$PATH
 # end
 
 # Learn more: http://github.com/javan/whenever
-every 2.minutes do 
-  # command 'ruby --version'
-  # command 'bundler --version'
-  # command 'ruby -e'
-  # command 'p ENV["PATH"]'
-  # runner 'Tweet.create(name: "taro", text: "aaa")'
-  rake "tweet:tweet_create"
-end
+
+# every 2.minutes do 
+#   # command 'ruby --version'
+#   # command 'bundler --version'
+#   # command 'ruby -e'
+#   # command 'p ENV["PATH"]'
+#   # runner 'Tweet.create(name: "taro", text: "aaa")'
+#   rake "tweet:tweet_create"
+# end
+
+# every 10.minutes do
+#   rake "tv:tv_create"
+# end
