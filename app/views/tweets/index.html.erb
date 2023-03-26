@@ -8,3 +8,9 @@
     </div>
   <% end %>
 </div>
+<div class="contents row">
+  <% @tvs.each do |tv| %>
+  <%= tv.title %>
+  <%= l tv.created_at %>
+  <% end %>
+</div>
